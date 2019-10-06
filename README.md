@@ -1,4 +1,3 @@
-|
 # README
 #chat_space cb設計
 ##userテーブル
@@ -23,7 +22,7 @@ Column|Type|Options|
 -balongs_to :user
 -has_many :comments
 
-##comments
+##commentsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |text|text|null: false|
@@ -37,4 +36,6 @@ Column|Type|Options|
 |------|----|-------|
 |user_id|integer|null: false, foreign_key:true|
 |adding_members|string|null: false|
-|mambaer|string|null: false
+|mambaer|string|null: false|
+###association
+-has_many :user, through: :posts_tag
