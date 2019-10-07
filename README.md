@@ -1,37 +1,47 @@
--##userテーブル
+-##usersテーブル
 |Column|Type|Options|
 |------|----|-------|
-|email|string|null: false|
-|password|string|null: felse|
+|email|    string|null: false|
+|password| string|null: felse|
 |usre_name|string|null: felse|
+|when     |string|null: felde|
+|update   |string|null: felde|
 ###association
--has_many :comment
--has_many :tweet
--add_index :user
--has_many :groups, through: :posts_true|
+-has_many   :tweets
+-has_many   :groups, through: :posts_true|
+-has_many   :groups_users
+
 
 ##tweelsテーブル
 Column|Type|Options|
 |------|----|-------|
-|text|text|null: false|
-|title|text|null: false|
-|user_id|integer|null: false, foreign_key: true|
+|text  |text|null: false|
+|title |text|null: false|
+|when  |string|null: felde|
+|update|string|null: felde|
 ###association
--balongs_to :user
--has_many :comments
-
-##commentsテーブル
-|Column|Type|Options|
-|------|----|-------|
-|text|text|null: false|
-|user_id|integer|null: false, foreingn_key: true|
-###association
--belongs_to :user
--balongs_to :tweet
+-balongs_to :users
+-balongs_to :groups
 
 ##groups_usersテーブル
 |Column|Type|Options|
 |------|----|-------|
-|user_id|integer|null: false, foreign_key:true|
+|user_id  |integer|null: false,foreign_key:true|
+|groups_id|integer|null: false,foreign_key:true|
+|when     |string |null: felde|
+|update   |string |null: felde|
+###associatino
+-has_many :users
+-has_many :groupsid
+
+##groupsテーブル
+|Column|Type|Options|
+|------|----|-------|
 |adding_members|string|null: false|
-|mambaer|string|null: false|
+|mambaer       |string|null: false|
+|when          |string|null: felde|
+|update        |string|null: felde|
+###associatino
+-has_many   :users,through: :posts_true|
+-balongs_to :groups_users
+-balongs_to :groups
