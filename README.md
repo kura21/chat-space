@@ -14,22 +14,22 @@
 Column|Type|Options|
 |------|----|-------|
 |text     |text   |null: false|
-|photo    |text   |null: false|
+|photo    |text   ||
 |user_id  |integer|null: false,foreign_key:true|
-|groups_id|integer|null: false,foreign_key:true|
+|group_id|integer|null: false,foreign_key:true|
 
 ###association
--balongs_to :users
--balongs_to :groups
+-balongs_to :user
+-balongs_to :group
 
 ##groups_usersテーブル
 |Column|Type|Options|
 |------|----|-------|
 |user_id  |integer|null: false,foreign_key:true|
-|groups_id|integer|null: false,foreign_key:true|
+|group_id|integer|null: false,foreign_key:true|
 
 ###associatino
--belongs_to :users
+-belongs_to :user
 -belongs_to :group
 
 ##groupsテーブル
