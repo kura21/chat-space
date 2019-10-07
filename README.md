@@ -29,7 +29,7 @@ Column|Type|Options|
 |groups_id|integer|null: false,foreign_key:true|
 
 ###associatino
--belongs_to :user
+-belongs_to :users
 -belongs_to :group
 
 ##groupsテーブル
