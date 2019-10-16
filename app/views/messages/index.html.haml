@@ -1,0 +1,50 @@
+.top-content
+  %p
+    グループを作成しました
+.left-contents
+  .left__header
+    .left-header__name
+      %p
+        sampleさん
+    %ul.left-header__iconlist
+      %li.list__icon<>
+        = link_to "", class: "icon-new" do
+          = fa_icon "edit", class: "icon__new--btn"
+      %li.list__icon<>
+        = link_to "", class: "icon-edit" do
+          = fa_icon "cog", class: "icon__btn--edit"
+  .left__list
+    .left-list__item
+      .room-name
+        %h2.group__grop-name グループ名前１
+      .room-info
+        %p.group__grop-message 投稿した内容１
+
+.main-contents
+  .main__header
+    .header__info
+      .info__name
+        %p
+          sample部屋
+      .info__memberlist
+        %p
+          Member:sampleさん
+    .header__btn
+      = link_to "Edit", "" , class: "edit-btn"
+  .main__messages
+    .message__item
+      .message-sender
+        %p sampleさん
+      .message-date
+        %p 2019/10/15(Tue) 11:40:55
+
+      .message-text
+        %p samplesamplesamplesamplesamplesamplesamplesamplesamplesamplesamplesamplesamplesamplesamplesamplesamplesamplesamplesamplesamplesamplesamplesamplesamplesamplesamplesamplesamplesample
+  .main__form
+    = form_for "", html: {class: :form__box}, method: :post do |f|
+      .input__box
+        = f.text_field :text, placeholder: "type a text", class: "message__form"
+        %label.upload-label{for: "upload-icon"}
+          %i.fa.fa-picture-o
+          = f.file_field :image, id: "upload-icon"
+      = f.submit value: "Send", class: "send__btn"
