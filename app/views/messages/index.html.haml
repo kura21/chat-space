@@ -43,8 +43,8 @@
   .main__form
     = form_for "", html: {class: :form__box}, method: :post do |f|
       .input__box
-        = f.text_field :text, :placeholder => "type a text", :class => "message__form"
-        %label.upload-label{for: "upload-btn", :class => "form__upload"}
+        = f.text_field :text, placeholder: "type a text", class: "message__form"
+        %label.upload-label{for: "upload-icon"}
           %i.fa.fa-picture-o
-          = f.file_field :image, :id =>"upload-btn"
-      = f.submit :value => "Send", :class => "send__btn"  
+          = f.file_field :image, id: "upload-icon"
+      = f.submit value: "Send", class: "send__btn"
