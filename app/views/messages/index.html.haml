@@ -1,18 +1,14 @@
-.top-content
-  %p
-    グループを作成しました
 .left-contents
   .left__header
-    .left-header__name
+    .left__header__name
       %p
-        sampleさん
+        = curren_user.name
     %ul.left-header__iconlist
       %li.list__icon<>
-        = link_to "", class: "icon-new" do
+        = link_to new_group_path do
           = fa_icon "edit", class: "icon__new--btn"
       %li.list__icon<>
-        = link_to "", class: "icon-edit" do
-          = fa_icon "cog", class: "icon__btn--edit"
+        = link_to edit_user_path(current_user),class: "icon-edit" do
   .left__list
     .left-list__item
       .room-name
