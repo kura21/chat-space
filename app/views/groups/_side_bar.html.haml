@@ -12,9 +12,9 @@
           = fa_icon "cog", class: "icon__new--btn"
   .left__list
     - current_user.groups.each do |group|
-      .left-list__item
-        = link_to group_messages_path(group) do
-          .room-name
-            = group.name
-          .room-info
-            = group.show_last_message
+    .left-list__item
+      = link_to group_messages_path(group) do
+        .room-name
+          = group.name
+        .room-info
+          = group.show_last_message
