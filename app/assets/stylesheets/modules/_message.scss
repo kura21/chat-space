@@ -42,11 +42,9 @@ body{
     padding: 20px 0 5px 0;
     font-size: 15px;
     font-weight: bold;
+    @include linkcontent();
   }
-    .name{
-      @include linkcontent();
-    }
-  
+    
   .room-info{
     padding-bottom: 40px;
     font-size: 11px;
@@ -97,6 +95,7 @@ body{
       height: calc(100vh - 190px);
       padding: $right-padding;
       background-color: #fafafa;
+      overflow: scroll;
         .message__item{
           padding: 46px 0 40px 0;
         }
