@@ -13,7 +13,7 @@
     = render partial: 'messages/message', collection: @messages
 
   .form
-    = form_for [@group, @message] do |f|
+    = form_for [@group, @message],id: "new_message" do |f|
       .form__mask
         = f.text_field :content, class: 'form__message', placeholder: 'type a message'
         = f.label :image, class: 'form__image' do
