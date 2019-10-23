@@ -73,4 +73,3 @@ $(function() {
       $(this).closest('div').remove();
     });
   });
-  

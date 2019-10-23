@@ -26,14 +26,14 @@
       = f.label :name, "チャットメンバー", class: 'chat-group-form__label'
     .chat-group-form__field--right
       .chat-group-users.js-add-user
-        .chat-group-user.clearfix.js-chat-member{id: "#{current_user.id}"}
-          %input{name: 'group[user_ids][]', type: 'hidden', value: "#{current_user.id}"}
+        .chat-group-user.clearfix.js-chat-member
+          = f.hidden_field 'group[user_ids][]', value: current_user.id
           %p.chat-group-user__name
             = current_user.name
         - group.users.each do |group_user|
           - if group_user != current_user
-            .chat-group-user.clearfix.js-chat-member{id: "#{group_user.id}"}
-              %input{name: 'group[user_ids][]', type: 'hidden', value: "#{group_user.id}"}
+            .chat-group-user.clearfix.js-chat-member
+              = f.hidden_field 'group[user_ids][]', value: group_user.id
               %p.chat-group-user__name
                 = group_user.name
               %a.user-search-remove.chat-group-user__btn.chat-group-user__btn--remove.js-remove-btn
@@ -41,8 +41,8 @@
 
   .chat-group-form__field.clearfix
     .chat-group-form__field--left
-    .chat-group-form__field--right
-      - if controller.controller_name == "groups" && controller.action_name == "new"
-        = f.submit "登録する", class: 'chat-group-form__action-btn'
-      - else
-        = f.submit "更新する", class: 'chat-group-form__action-btn'
+      .chat-group-form__field--right
+        - if controller.controller_name == "groups" && controller.action_name == "new"
+          = f.submit "登録する", class: 'chat-group-form__action-btn'
+        - else
+          = f.submit "更新する", class: 'chat-group-form__action-btn'
