@@ -31,11 +31,11 @@ $(function() {
         var html = appendUser(user);
         $('#user-search-result').append(html);
       });
-     }
-     else {
-       appendErrMsgToHTML("一致する情報はありません");
-     }
-    })
+    }
+    else {
+      appendErrMsgToHTML("一致する情報はありません");
+    }
+  })
     .fail(function(){
       alert('error');
     })
