@@ -72,7 +72,7 @@ $(function(){
       });
     })
     .fail(function() {
-      console.log('エラー');
+      alert('自動更新に失敗しました');
     });
     }
   };
