@@ -1,7 +1,6 @@
 $(function(){
   function buildMessage(message){
     var MessageImage = (message.image) ? message.image : '';
-   
     var html = `<div class="message" data-id="${message.id}">
     <div class="upper-message">
     <div class="upper-message__user-name">
@@ -54,7 +53,8 @@ $(function(){
   var reloadMessages = function() {
     if(window.location.href.match(/\/groups\/\d+\/messages/)){
     //カスタムデータ属性を利用し、ブラウザに表示されている最新メッセージのidを取得
-    var last_message_id = $('.message:last').data('id');
+    var last_message_id = $('.message:last').data("id");
+    console.table(last_message_id)
     $.ajax({
       //ルーティングで設定した通りのURLを指定
       url: "api/messages",
@@ -83,7 +83,7 @@ $(function(){
       var messageBody = message.content ? message.content : '';
       var messageImage = message.image ? `<img src="${message.image}" class="lower-message__image">` : '';
       //data-idが反映されるようにしている
-      var html = `<div class="message" data-id=${message.id}  > 
+      var html = `<div class="message" data-id="${message.id}" > 
         <div class="upper-message">
           <div class="upper-message__user-name">
             ${message.user_name} 
