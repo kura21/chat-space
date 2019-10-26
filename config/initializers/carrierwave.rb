@@ -13,5 +13,5 @@ CarrierWave.configure do |config|
   }
 
   config.fog_directory  = 'kura21'
-  config.asset_host = 'https://ap-northeast-1.amazonaws.com/kura21'
+  config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/kura21'
 end
