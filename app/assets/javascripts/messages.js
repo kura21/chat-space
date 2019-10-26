@@ -1,7 +1,8 @@
 $(function(){
   function buildMessage(message){
     var MessageImage = (message.image) ? message.image : '';
-    var html = `<div class="message">
+   
+    var html = `<div class="message" data-id="${message.id}">
     <div class="upper-message">
     <div class="upper-message__user-name">
     ${message.user_name}
