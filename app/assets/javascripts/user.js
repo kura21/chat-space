@@ -1,4 +1,4 @@
-$(function() {
+$(document).on('turbolinks:load', function() {
   function addUser(user) {
     //HTMLを作成ユーザー名nameとidにそれぞれDBから取得した情報が表示される
     let html = `
