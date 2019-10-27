@@ -26,16 +26,16 @@ $(function() {
       dataType: 'json'
     })
     .done(function(users){
-      if (users.length !== 0){
-      users.forEach(function(user){
-        var html = appendUser(user);
-        $('#user-search-result').append(html);
-      });
-    }
-    else {
-      appendErrMsgToHTML("一致する情報はありません");
-    }
-  })
+      if (users.length !== 0) {
+        users.forEach(function(user){
+          var html = appendUser(user);
+          $('#user-search-result').append(html);
+        });
+      }
+      else {
+        appendErrMsgToHTML("一致する情報はありません");
+      }
+    })
     .fail(function(){
       alert('error');
     })
@@ -54,7 +54,7 @@ $(function() {
 
 
 
-  $('#user-search-result').on('click', '.user-search-add', function(){
+  $(document).on('click', '.user-search-add', function(){
     var name = $(this).data('user-name');
     var id = $(this).data('user-id');
     $(this).parent().remove();
