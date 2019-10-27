@@ -25,6 +25,7 @@ $(document).on('turbolinks:load', function() {
 
   $('#new_message').on('submit', function(e){
     e.preventDefault();
+    
     var formData = new FormData(this);
     var url = $(this).attr('action');
 
@@ -65,6 +66,7 @@ $(document).on('turbolinks:load', function() {
       data: {id: last_message_id}
     })
     .done(function(messages) {
+      console.log(messages)
       var insertHTML = '';
       messages.forEach(function(message){
         insertHTML=buildMessageHTML(message);

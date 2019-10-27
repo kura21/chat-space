@@ -1,4 +1,4 @@
-$(document).on('turbolinks:load', function() {
+$(function() {
   function addUser(user) {
     //HTMLを作成ユーザー名nameとidにそれぞれDBから取得した情報が表示される
     let html = `
@@ -49,18 +49,28 @@ $(document).on('turbolinks:load', function() {
       alert("通信エラーです。ユーザーが表示できません。");
     });
   });
-  
+
 
   function addDeleteUser(name, id) {
-    let html = `
-    <div class="ChatMember clearfix" id="${id}">
-    <p class="ChatMember__name">${name}</p>
-    <div class="ChatMember__remove ChatMember__button" data-user-id="${id}" data-user-name="${name}">削除</div>
-    <input value="${id}" name="group[user_ids][]" type="hidden" id="group_user_ids_${id}" />
-    </div>`;
+    // let html = `
+    // <div class="ChatMember clearfix" id="${id}">
+    // <p class="ChatMember__name">${name}</p>
+    // <div class="ChatMember__remove ChatMember__button" data-user-id="${id}" data-user-name="${name}">削除</div>
+    // <input value="${id}" name="group[user_ids][]" type="hidden" id="group_user_ids_${id}" />
+    // </div>`;
+
+    let html =  ` <div class='chat-group-user clearfix js-chat-member' id='chat-group-user-8'>
+    <input name='group[user_ids][]' type='hidden' class="js-user" value=${id}>
+    <p class='chat-group-user__name'>${name}</p>
+    <div class='user-search-remove chat-group-user__btn chat-group-user__btn--remove js-remove-btn'>削除</div>
+    </div>`
     $("#ChatMembers").append(html);
+
+
+
+
   }
-  
+
   $(document).on("click", ".chat-group-user__btn--add", function() {
     const name = $(this).attr("data-user-name");
     const id = $(this).attr("data-user-id");
@@ -69,10 +79,7 @@ $(document).on('turbolinks:load', function() {
     });
 
 
-  $(document).on("click", ".ChatMember__remove", function() {
-    const name = $(this).attr("data-user-name");
-    const id = $(this).attr("data-user-id");
+  $(document).on("click", ".user-search-remove", function() {
     $(this).parent().remove();
-    addDeleteUser(name, id);
   });
 });
