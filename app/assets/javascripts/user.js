@@ -70,6 +70,9 @@ $(function() {
 
 
   $(document).on("click", ".ChatMember__remove", function() {
+    const name = $(this).attr("data-user-name");
+    const id = $(this).attr("data-user-id");
     $(this).parent().remove();
+    addDeleteUser(name, id);
   });
 });
