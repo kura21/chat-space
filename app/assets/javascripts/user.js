@@ -75,7 +75,7 @@ $(document).on('turbolinks:load', function() {
     const name = $(this).attr("data-user-name");
     const id = $(this).attr("data-user-id");
     $(this).parent().remove();
-    addDeleteUser(name, id);
+    // addDeleteUser(name, id);
     });
 
 
