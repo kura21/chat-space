@@ -1,4 +1,5 @@
 $(document).on('turbolinks:load', function() {
+  $(function (){
   function addUser(user) {
     //HTMLを作成ユーザー名nameとidにそれぞれDBから取得した情報が表示される
     let html = `
@@ -46,7 +47,7 @@ $(document).on('turbolinks:load', function() {
       }
     })
     .fail(function() {
-      alert("通信エラーです。ユーザーが表示できません。");
+      alert("通信エラーです。ユーザーが表示できません");
     });
   });
 
@@ -64,22 +65,22 @@ $(document).on('turbolinks:load', function() {
     <p class='chat-group-user__name'>${name}</p>
     <div class='user-search-remove chat-group-user__btn chat-group-user__btn--remove js-remove-btn'>削除</div>
     </div>`
-    $("#ChatMembers").append(html);
+    $("#chat-group-users").append(html);
 
 
 
 
   }
 
-  $(document).on("click", ".chat-group-user__btn--add", function() {
+  $("#user-search-result").on("click", ".user-search-add", function() {
     const name = $(this).attr("data-user-name");
     const id = $(this).attr("data-user-id");
     $(this).parent().remove();
     addDeleteUser(name, id);
     });
 
-
   $(document).on("click", ".user-search-remove", function() {
     $(this).parent().remove();
   });
+});
 });
